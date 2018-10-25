@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App1"
+             x:Class="App1.MainPage">
+
+    <StackLayout>
+        <Button Clicked="Button_Clicked"
+                Text="Get News"/>
+       
+        <ListView x:Name="lstNews"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="Default"
+                  SeparatorColor="Gray">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Margin="5"
+                               HeightRequest="125"
+                               Padding="0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Image Grid.Row="0"
+                                       Grid.RowSpan="2"
+                                       Source="{Binding urlToImage}"
+                                       Aspect="Fill"/>
+
+                                <BoxView Grid.Row="1"
+                                         BackgroundColor="#AA000000"/>
+
+                                <Label Grid.Row="1"
+                                       Margin="10"
+                                       TextColor="White"
+                                       FontSize="Medium"
+                                       Text="{Binding title}"/>
+                            </Grid>
+                        </Frame>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
